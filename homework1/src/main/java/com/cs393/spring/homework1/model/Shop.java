@@ -18,6 +18,22 @@ public class Shop {
     @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL) // Should I delete all products when a shop is deleted?
     private List<Product> products;
 
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     public Integer getId() {
         return id;
     }

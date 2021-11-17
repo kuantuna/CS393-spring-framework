@@ -20,6 +20,22 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     public Integer getId() {
         return id;
     }

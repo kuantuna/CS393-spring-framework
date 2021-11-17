@@ -17,11 +17,35 @@ public class Customer {
     @JoinColumn(name = "shop_id")
     private Shop shop;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL) // Should I delete all orders when a customer is deleted_
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL) // Should I delete all orders when a customer is deleted?
     private List<Order> orders;
 
     @OneToOne
     private Address address;
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public Integer getId() {
         return id;
