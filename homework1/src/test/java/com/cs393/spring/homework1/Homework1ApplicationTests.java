@@ -2,6 +2,7 @@ package com.cs393.spring.homework1;
 
 import com.cs393.spring.homework1.model.*;
 import com.cs393.spring.homework1.repository.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +30,7 @@ class Homework1ApplicationTests {
     ShopRepository shopRepository;
 
     @Test
-    void save() {
+    void saveAndGet() {
         Address address1 = new Address();
         address1.setCity("Istanbul");
         address1.setText("Kadikoy");
@@ -91,6 +92,7 @@ class Homework1ApplicationTests {
         product2.setOrders(orders);
         product2.setShop(shop1);
 
+        // Save
         addressRepository.save(address1);
         shopRepository.save(shop1);
         customerRepository.save(customer1);
@@ -99,5 +101,10 @@ class Homework1ApplicationTests {
         orderRepository.save(order2);
         productRepository.save(product1);
         productRepository.save(product2);
+
+        // Get
+        Assertions.assertTrue(addressRepository.existsById(address1.getId()));
+        Assertions.assertEquals(1, shopRepository.count());
+        Assertions.assertEquals(customer2.getId(), customerRepository.getById(customer2.getId()).getId());
     }
 }
