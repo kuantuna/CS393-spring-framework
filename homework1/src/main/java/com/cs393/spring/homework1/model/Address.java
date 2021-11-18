@@ -8,7 +8,11 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "text", nullable = false)
     private String text;
+
+    @Column(name = "city", nullable = false)
     private String city;
 
     public Integer getId() {

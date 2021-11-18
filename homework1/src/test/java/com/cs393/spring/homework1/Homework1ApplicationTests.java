@@ -29,7 +29,7 @@ class Homework1ApplicationTests {
     ShopRepository shopRepository;
 
     @Test
-    void test() {
+    void save() {
         Address address1 = new Address();
         address1.setCity("Istanbul");
         address1.setText("Kadikoy");
@@ -99,8 +99,5 @@ class Homework1ApplicationTests {
         orderRepository.save(order2);
         productRepository.save(product1);
         productRepository.save(product2);
-
-
     }
-
 }

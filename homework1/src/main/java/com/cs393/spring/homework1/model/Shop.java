@@ -9,7 +9,11 @@ public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "address", nullable = false)
     private String address;
 
     @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL) // Should I delete all customers when a shop is deleted?

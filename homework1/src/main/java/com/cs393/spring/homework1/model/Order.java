@@ -10,7 +10,11 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "date", nullable = false)
     private Date date;
+
+    @Column(name = "amount", nullable = false)
     private Double amount;
 
     @ManyToMany(mappedBy = "orders")

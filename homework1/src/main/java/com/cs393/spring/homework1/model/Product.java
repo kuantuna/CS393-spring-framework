@@ -9,7 +9,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "price", nullable = false)
     private Double price;
 
     @ManyToOne
