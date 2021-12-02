@@ -1,5 +1,7 @@
 package com.cs393.spring.homework1.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -42,6 +44,7 @@ public class Shop {
         this.products = products;
     }
 
+    @JsonIgnore
     public List<Customer> getCustomers() {
         return customers;
     }

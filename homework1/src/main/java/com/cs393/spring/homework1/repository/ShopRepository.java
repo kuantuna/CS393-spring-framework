@@ -17,6 +17,6 @@ public interface ShopRepository extends JpaRepository<Shop, Integer> {
     @Query("select new Shop(s.id, s.name, s.address) from Shop s where s.id=?1")
     public List<ShopIdProjection> getById_(Integer id);
 
-    @Query("select new Product(p.id, p.name, p.price) from Product p where p.shopId=?1 and p.price > ?2")
+    @Query("select new Product(p.id, p.name, p.price) from Product p where p.shop.id=?1 and p.price > ?2")
     public List<ProductProjection> getShopByProductsPrice(Integer id, Double price);
 }

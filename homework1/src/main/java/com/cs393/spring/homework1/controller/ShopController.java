@@ -9,6 +9,7 @@ import com.cs393.spring.homework1.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class ShopController {
     }
 
     @PostMapping
-    public Shop saveShop(@RequestBody Shop shop){
+    public List<ShopIdProjection> saveShop(@RequestBody Shop shop){
         return shopService.save(shop);
     }
 
@@ -42,5 +43,12 @@ public class ShopController {
         }
         Shop shop = new Shop(fetchedShopId, fetchedName, fetchedAddress, products);
         return shop;
+    }
+
+    @Transactional
+    @DeleteMapping("/{shop-id}")
+    public void deleteById(@PathVariable("shop-id") int id)
+    {
+        shopService.deleteById(id);
     }
 }

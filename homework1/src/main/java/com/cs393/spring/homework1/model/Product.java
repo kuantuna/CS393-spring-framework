@@ -22,8 +22,6 @@ public class Product {
     @JoinColumn(name = "shop_id")
     private Shop shop;
 
-    @Column(name = "shop_id", insertable=false, updatable=false)
-    private Integer shopId;
 
     @ManyToMany
     @JoinTable(name = "T_PRODUCT_ORDER",
@@ -39,6 +37,7 @@ public class Product {
         this.price = price;
     }
 
+    @JsonIgnore
     public Shop getShop() {
         return shop;
     }
@@ -47,6 +46,7 @@ public class Product {
         this.shop = shop;
     }
 
+    @JsonIgnore
     public List<Order> getOrders() {
         return orders;
     }
@@ -77,7 +77,4 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getShopId() {
-        return shopId;
-    }
 }

@@ -21,14 +21,17 @@ public class ShopServiceImpl implements ShopService {
     ShopRepository shopRepository;
 
     @Autowired
+    @Qualifier("customerRepository")
     CustomerRepository customerRepository;
 
     @Autowired
+    @Qualifier("productRepository")
     ProductRepository productRepository;
 
     @Override
-    public Shop save(Shop shop) {
-        return shopRepository.save(shop);
+    public List<ShopIdProjection> save(Shop shop) {
+        Shop shop_ = shopRepository.save(shop);
+        return shopRepository.getById_(shop_.getId());
     }
 
     @Override
@@ -48,6 +51,8 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public void deleteById(int id) {
-
+        customerRepository.unassignCustomer(id);
+        productRepository.unassignProduct(id);
+        shopRepository.deleteById(id);
     }
 }
