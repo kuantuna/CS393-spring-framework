@@ -10,20 +10,20 @@ Following Spring dependencies is used in the project.
 I have used MySQL database.
 
 ## Steps to Run the Application
-### First: 
 
-Run "Homework1ApplicationTests", it will add some example data to the database.
+### First:
+Create a database named cs393hw1db. You can use the command (CREATE DATABASE IF NOT EXISTS cs393hw1db).
 
 ### Second:
-
-Change "spring.jpa.hibernate.ddl-auto=create" to "spring.jpa.hibernate.ddl-auto=update" in the first line of the application.properties file.
+Run "Homework1ApplicationTests", it will add some example data to the database.
 
 ### Third:
-
-Run "Homework1Application", now the system is up and running
+Change "spring.jpa.hibernate.ddl-auto=create" to "spring.jpa.hibernate.ddl-auto=update" in the first line of the application.properties file.
 
 ### Fourth:
+Run "Homework1Application", now the system is up and running
 
+### Fifth:
 Now you can send requests to check different endpoints.
 
 
