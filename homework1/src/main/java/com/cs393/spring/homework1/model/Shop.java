@@ -16,11 +16,31 @@ public class Shop {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL) // Should I delete all customers when a shop is deleted?
+    @OneToMany(mappedBy = "shop", fetch = FetchType.LAZY) // Should I delete all customers when a shop is deleted?
     private List<Customer> customers;
 
-    @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL) // Should I delete all products when a shop is deleted?
+    @OneToMany(mappedBy = "shop", fetch = FetchType.LAZY) // Should I delete all products when a shop is deleted?
     private List<Product> products;
+
+    public Shop() {
+    }
+
+    public Shop(Integer id) {
+        this.id = id;
+    }
+
+    public Shop(Integer id, String name, String address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
+    public Shop(Integer id, String name, String address, List<Product> products) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.products = products;
+    }
 
     public List<Customer> getCustomers() {
         return customers;

@@ -21,7 +21,7 @@ public class Customer {
     @JoinColumn(name = "shop_id")
     private Shop shop;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL) // Should I delete all orders when a customer is deleted?
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY) // Should I delete all orders when a customer is deleted?
     private List<Order> orders;
 
     @OneToOne
